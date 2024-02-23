@@ -1,0 +1,105 @@
+.header{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+}
+.navbar{
+    height: 5.5rem;
+    width: 100%;
+    background-color: white;
+    transition: top 0.3s ease-in-out;
+    transition: box-shadow 0.3s ease-in-out;
+}
+.navbar.scrolled{
+    box-shadow: 0 2px 4px black;
+}
+.navbar-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+.navbar-links{
+   display: flex;
+   justify-content: flex-end;
+   width: fit-content;
+}
+.navbar-links ul{
+    align-items: center;
+    display: flex;
+}
+.navbar-links ul li{
+    margin-left: 4.3rem;
+}
+.navbar-links ul li a{
+    color: black;
+    font-size: 1.288rem;
+    transition: color 0.3s;
+}
+.navbar-links ul li a:hover{
+    color: var(--danger-color);
+}
+.toggle-button{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 999;
+}
+.toggle-button .line{
+    width: 100%;
+    height: 3px;
+    background-color: black;
+    transition: tranform 0.3s, opacity 0.3s,
+    background-color 0.3s
+}
+.open .line{
+    background-color: white;
+
+}
+.open .line:nth-child(1){
+    transform: rotate(-45deg) translate(-6px,6px);
+}
+.open .line:nth-child(2){
+     opacity: 0;
+}
+.open .line:nth-child(3){
+    transform: rotate(45deg) translate(-6px,6px)   
+}
+@media  screen and (max-width:890px) {
+    .navbar-links{
+        position: fixed;
+        inset: 0;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        background-color: black;
+        width: 100%;
+        max-height: 0;
+        z-index: 999;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+    }
+    .navbar-links ul{
+        justify-content: center;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+    }
+    .navbar-links ul li{
+        margin: 10px 0;
+    }
+    .navbar-links ul li a{
+        color: white;
+        transition: color 0.3s;
+    }
+    .navbar-links.show{
+        max-width: 100vh;
+    }
+}
+
+
+
